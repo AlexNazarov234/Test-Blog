@@ -10,9 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_10_050719) do
+ActiveRecord::Schema.define(version: 2019_06_10_091327) do
 
-  create_table "articals", force: :cascade do |t|
+  create_table "articles", force: :cascade do |t|
     t.text "title"
     t.text "text"
     t.datetime "created_at", null: false

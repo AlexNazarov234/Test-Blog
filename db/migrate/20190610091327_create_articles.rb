@@ -1,6 +1,6 @@
-class CreateArticals < ActiveRecord::Migration[5.2]
+class CreateArticles < ActiveRecord::Migration[5.2]
   def change
-    create_table :articals do |t|
+    create_table :articles do |t|
       t.text :title
       t.text :text
 
