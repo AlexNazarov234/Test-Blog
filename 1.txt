@@ -1,19 +1,74 @@
-                   Prefix Verb   URI Pattern                                                                              Controller#Action
-               home_index GET    /home/index(.:format)                                                                    home#index
-                    terms GET    /terms(.:format)                                                                         pages#terms
-                    about GET    /about(.:format)                                                                         pages#about
-             new_contacts GET    /contacts(.:format)                                                                      contacts#new
-                 contacts POST   /contacts(.:format)                                                                      contacts#create
-                 articles GET    /articles(.:format)                                                                      articles#index
-                          POST   /articles(.:format)                                                                      articles#create
-              new_article GET    /articles/new(.:format)                                                                  articles#new
-             edit_article GET    /articles/:id/edit(.:format)                                                             articles#edit
-                  article GET    /articles/:id(.:format)                                                                  articles#show
-                          PATCH  /articles/:id(.:format)                                                                  articles#update
-                          PUT    /articles/:id(.:format)                                                                  articles#update
-                          DELETE /articles/:id(.:format)                                                                  articles#destroy
-       rails_service_blob GET    /rails/active_storage/blobs/:signed_id/*filename(.:format)                               active_storage/blobs#show
-rails_blob_representation GET    /rails/active_storage/representations/:signed_blob_id/:variation_key/*filename(.:format) active_storage/representations#show
-       rails_disk_service GET    /rails/active_storage/disk/:encoded_key/*filename(.:format)                              active_storage/disk#show
-update_rails_disk_service PUT    /rails/active_storage/disk/:encoded_token(.:format)                                      active_storage/disk#update
-     rails_direct_uploads POST   /rails/active_storage/direct_uploads(.:format)                                           active_storage/direct_uploads#create
+F
+
+Failures:
+
+  1) Contact creation allows acces to contacts page
+     Got 0 failures and 2 other errors:
+
+     1.1) Failure/Error: visit "/contacts"
+
+          ArgumentError:
+            rack-test requires a rack application, but none was given
+          # ./spec/features/visitor_create_contact_spec.rb:6:in `block (2 levels) in <top (required)>'
+
+     1.2) Failure/Error: raise ArgumentError, 'rack-test requires a rack application, but none was given' unless app
+
+          ArgumentError:
+            rack-test requires a rack application, but none was given
+          # C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/capybara-3.24.0/lib/capybara/rack_test/driver.rb:18:in `initialize'
+          # C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/capybara-3.24.0/lib/capybara/registrations/drivers.rb:4:in `new'
+          # C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/capybara-3.24.0/lib/capybara/registrations/drivers.rb:4:in `block in <top (required)>'
+          # C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/capybara-3.24.0/lib/capybara/session.rb:102:in `driver'
+          # C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/capybara-3.24.0/lib/capybara/session.rb:128:in `reset!'
+          # C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/capybara-3.24.0/lib/capybara.rb:321:in `block in reset_sessions!'
+          # C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/capybara-3.24.0/lib/capybara.rb:321:in `reverse_each'
+          # C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/capybara-3.24.0/lib/capybara.rb:321:in `reset_sessions!'
+          # C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/capybara-3.24.0/lib/capybara/rspec.rb:18:in `block (2 levels) in <top (required)>'
+          # C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/rspec-core-3.8.1/lib/rspec/core/example.rb:447:in `instance_exec'
+          # C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/rspec-core-3.8.1/lib/rspec/core/example.rb:447:in `instance_exec'
+          # C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/rspec-core-3.8.1/lib/rspec/core/hooks.rb:355:in `run'
+          # C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/rspec-core-3.8.1/lib/rspec/core/hooks.rb:507:in `block in run_owned_hooks_for'
+          # C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/rspec-core-3.8.1/lib/rspec/core/hooks.rb:506:in `each'
+          # C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/rspec-core-3.8.1/lib/rspec/core/hooks.rb:506:in `run_owned_hooks_for'
+          # C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/rspec-core-3.8.1/lib/rspec/core/hooks.rb:593:in `block in run_example_hooks_for'
+          # C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/rspec-core-3.8.1/lib/rspec/core/hooks.rb:592:in `each'
+          # C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/rspec-core-3.8.1/lib/rspec/core/hooks.rb:592:in `run_example_hooks_for'
+          # C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/rspec-core-3.8.1/lib/rspec/core/hooks.rb:463:in `run'
+          # C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/rspec-core-3.8.1/lib/rspec/core/example.rb:507:in `run_after_example'
+          # C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/rspec-core-3.8.1/lib/rspec/core/example.rb:273:in `block in run'
+          # C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/rspec-core-3.8.1/lib/rspec/core/example.rb:500:in `block in with_around_and_singleton_context_hooks'
+          # C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/rspec-core-3.8.1/lib/rspec/core/example.rb:457:in `block in with_around_example_hooks'
+          # C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/rspec-core-3.8.1/lib/rspec/core/hooks.rb:464:in `block in run'
+          # C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/rspec-core-3.8.1/lib/rspec/core/hooks.rb:602:in `run_around_example_hooks_for'
+          # C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/rspec-core-3.8.1/lib/rspec/core/hooks.rb:464:in `run'
+          # C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/rspec-core-3.8.1/lib/rspec/core/example.rb:457:in `with_around_example_hooks'
+          # C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/rspec-core-3.8.1/lib/rspec/core/example.rb:500:in `with_around_and_singleton_context_hooks'
+          # C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/rspec-core-3.8.1/lib/rspec/core/example.rb:251:in `run'
+          # C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/rspec-core-3.8.1/lib/rspec/core/example_group.rb:629:in `block in run_examples'
+          # C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/rspec-core-3.8.1/lib/rspec/core/example_group.rb:625:in `map'
+          # C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/rspec-core-3.8.1/lib/rspec/core/example_group.rb:625:in `run_examples'
+          # C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/rspec-core-3.8.1/lib/rspec/core/example_group.rb:591:in `run'
+          # C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/rspec-core-3.8.1/lib/rspec/core/runner.rb:116:in `block (3 levels) in run_specs'
+          # C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/rspec-core-3.8.1/lib/rspec/core/runner.rb:116:in `map'
+          # C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/rspec-core-3.8.1/lib/rspec/core/runner.rb:116:in `block (2 levels) in run_specs'
+          # C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/rspec-core-3.8.1/lib/rspec/core/configuration.rb:2008:in `with_suite_hooks'
+          # C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/rspec-core-3.8.1/lib/rspec/core/runner.rb:111:in `block in run_specs'
+          # C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/rspec-core-3.8.1/lib/rspec/core/reporter.rb:74:in `report'
+          # C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/rspec-core-3.8.1/lib/rspec/core/runner.rb:110:in `run_specs'
+          # C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/rspec-core-3.8.1/lib/rspec/core/runner.rb:87:in `run'
+          # C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/rspec-core-3.8.1/lib/rspec/core/runner.rb:71:in `run'
+          # C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/rspec-core-3.8.1/lib/rspec/core/runner.rb:45:in `invoke'
+          # C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/rspec-core-3.8.1/exe/rspec:4:in `<main>'
+          # 
+          #   Showing full backtrace because every line was filtered out.
+          #   See docs for RSpec::Configuration#backtrace_exclusion_patterns and
+          #   RSpec::Configuration#backtrace_inclusion_patterns for more information.
+
+Finished in 0.01834 seconds (files took 2.1 seconds to load)
+1 example, 1 failure
+
+Failed examples:
+
+rspec ./spec/features/visitor_create_contact_spec.rb:5 # Contact creation allows acces to contacts page
+
+C:/Ruby25-x64/bin/ruby.exe -I'C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/rspec-core-3.8.1/lib';'C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/rspec-support-3.8.2/lib' 'C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/rspec-core-3.8.1/exe/rspec' --pattern 'spec/**{,/*/**}/*_spec.rb'
