@@ -7,20 +7,14 @@ feature "Contact creation" do
 		
 		expect(page).to have_content I18n.t 'contacts.contact_us'
 	end
+
+	scenario "allows a guest to create contact" do
+		fill_in :contact_email, :with => 'user@test.com'
+		fill_in :contact_message, :with => 'blabla'
+
+		click_button 'Send message'
+
+		expect(page).to have_content 'Thanks'
+	end
+
 end
-
-
-# feature "Signing in" do
-#   background do
-#     User.make(email: 'user@example.com', password: 'caplin')
-#   end
-
-#   scenario "Signing in with correct credentials" do
-#     visit '/sessions/new'
-#     within("#session") do
-#       fill_in 'Email', with: 'user@example.com'
-#       fill_in 'Password', with: 'caplin'
-#     end
-#     click_button 'Sign in'
-#     expect(page).to have_content 'Success'
-#   end
