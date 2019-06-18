@@ -1,20 +1,17 @@
 require 'spec_helper'
 require 'capybara/rspec'
 
-feature "Contact creation" do 
-	scenario "allows acces to contacts page" do 
-		visit "/contacts"
-		
-		expect(page).to have_content I18n.t 'contacts.contact_us'
+feature "Account creation" do 
+	scenario "allows guest to create account" do 
+		visit new_user_registration_path
+
+		fill_in :user_email, :with => 'user@test.com'
+		fill_in :user_username, :with => 'mike123'
+		fill_in :user_password, :with => '111111'
+		fill_in :user_password_confirmation, :with => '111111'
+
+		click_button 'Sign up'
+
+		expect(page).to have_comment I18n.t 'devise.registrations.signed_up'
 	end
-
-	scenario "allows a guest to create contact" do
-		fill_in :contact_email, :with => 'user@test.com'
-		fill_in :contact_message, :with => 'blabla'
-
-		click_button 'Send message'
-
-		expect(page).to have_content 'Thanks'
-	end
-
 end
